@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">摂氏・華氏変換</string>
+    <string name="app_name">摂氏/華氏</string>
     <string name="celsius">摂氏（°C）</string>
     <string name="fahrenheit">華氏（°F）</string>
     <string name="kelvin">ケルビン（K）</string>
