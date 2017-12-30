@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="celsius"
+            type="com.knz21.temperature.viewmodel.TemperatureViewModel"/>
+
+        <variable
+            name="fahrenheit"
+            type="com.knz21.temperature.viewmodel.TemperatureViewModel"/>
+
+        <variable
+            name="kelvin"
+            type="com.knz21.temperature.viewmodel.TemperatureViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="48dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/celsius"/>
+
+        <com.knz21.temperature.view.TemperatureEditView
+            android:id="@+id/celsius_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:text="@{celsius.value}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/fahrenheit"/>
+
+        <com.knz21.temperature.view.TemperatureEditView
+            android:id="@+id/fahrenheit_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:text="@{fahrenheit.value}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/kelvin"/>
+
+        <com.knz21.temperature.view.TemperatureEditView
+            android:id="@+id/kelvin_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:text="@{kelvin.value}"/>
+    </LinearLayout>
+</layout>
