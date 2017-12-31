@@ -5,7 +5,12 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.knz21.temperature.R
-import com.knz21.temperature.common.*
+import com.knz21.temperature.common.Type
+import com.knz21.temperature.common.ceilOrFloor
+import com.knz21.temperature.common.decimalPlus
+import com.knz21.temperature.common.hasTruncation
+import com.knz21.temperature.common.isDecimal
+import com.knz21.temperature.common.validValue
 import com.knz21.temperature.contract.TemperatureContract
 import com.knz21.temperature.databinding.ActivityTemperatureBinding
 import com.knz21.temperature.model.Temperature
