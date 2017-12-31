@@ -3,6 +3,7 @@ package com.knz21.temperature.view
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.knz21.temperature.R
 import com.knz21.temperature.common.Type
 import com.knz21.temperature.contract.TemperatureContract
@@ -20,6 +21,7 @@ class TemperatureActivity : AppCompatActivity(), TemperatureContract {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_temperature)
+        FirebaseAnalytics.getInstance(this).logEvent(FirebaseAnalytics.Event.APP_OPEN, null)
         binding.celsius = TemperatureViewModel(temperature, Type.Celsius)
         binding.fahrenheit = TemperatureViewModel(temperature, Type.Fahrenheit)
         binding.kelvin = TemperatureViewModel(temperature, Type.Kelvin)
