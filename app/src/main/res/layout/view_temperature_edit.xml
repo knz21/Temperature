@@ -14,13 +14,34 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/chevron_left"
+            android:id="@+id/minus10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:onClick="@{viewModel::onClickLeft}"
-            android:src="@drawable/ic_chevron_left"/>
+            android:onClick="@{viewModel::minus10}"
+            android:src="@drawable/ic_chevron_left_large"/>
+
+        <ImageView
+            android:id="@+id/minus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/minus10"
+            android:onClick="@{viewModel::minus}"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:src="@drawable/ic_chevron_left_medium"/>
+
+        <ImageView
+            android:id="@+id/minus01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/minus"
+            android:onClick="@{viewModel::minus01}"
+            android:paddingBottom="16dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="16dp"
+            android:src="@drawable/ic_chevron_left_small"/>
 
         <TextView
             android:id="@+id/temperature_text"
@@ -29,12 +50,35 @@
             android:layout_centerInParent="true"/>
 
         <ImageView
-            android:id="@+id/chevron_right"
+            android:id="@+id/plus01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/plus"
+            android:onClick="@{viewModel::plus01}"
+            android:paddingBottom="16dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="16dp"
+            android:src="@drawable/ic_chevron_right_small"/>
+
+        <ImageView
+            android:id="@+id/plus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/plus10"
+            android:onClick="@{viewModel::plus}"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:src="@drawable/ic_chevron_right_medium"/>
+
+        <ImageView
+            android:id="@+id/plus10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:onClick="@{viewModel::onClickRight}"
-            android:src="@drawable/ic_chevron_right"/>
+            android:onClick="@{viewModel::plus10}"
+            android:src="@drawable/ic_chevron_right_large"/>
     </RelativeLayout>
 </layout>

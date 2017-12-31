@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.knz21.temperature.R
-import com.knz21.temperature.common.Type
+import com.knz21.temperature.common.*
 import com.knz21.temperature.contract.TemperatureContract
 import com.knz21.temperature.databinding.ActivityTemperatureBinding
 import com.knz21.temperature.model.Temperature
@@ -30,22 +30,15 @@ class TemperatureActivity : AppCompatActivity(), TemperatureContract {
         binding.kelvinEdit.binding.viewModel = TemperatureEditViewModel(this, Type.Kelvin)
     }
 
-    override fun plus(type: Type) {
-        nextValue(type, 1).let {
+    override fun plus(type: Type, step: Float) {
+        nextValue(type, step).validValue(type).let {
             temperature.saveValue(type, it)
             setText(type, it.toString())
         }
     }
 
-    override fun minus(type: Type) {
-        nextValue(type, -1).let {
-            temperature.saveValue(type, it)
-            setText(type, it.toString())
-        }
-    }
-
-    private fun nextValue(type: Type, step: Int): Float = (currentValue(type) + step).toDouble().let {
-        (if (step > 0) Math.floor(it) else Math.ceil(it)).toFloat()
+    private fun nextValue(type: Type, step: Float): Float = currentValue(type).let {
+        if (!step.isDecimal() || !it.hasTruncation()) it.decimalPlus(step) else it.ceilOrFloor(step > 0)
     }
 
     private fun currentValue(type: Type): Float = when (type) {
